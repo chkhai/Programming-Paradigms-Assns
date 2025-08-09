@@ -1,0 +1,26 @@
+addi sp sp -6
+li t1 10
+li t2 20 
+li t3 30
+addi t1 t1 15
+sh t1 0(sp)
+sh t2 2(sp)
+sh t3 4(sp)
+
+bgt t2 t1 else
+
+lh x27 4(sp)
+mul x27 x27 t2
+mv x11 x27
+ecall
+j end
+
+else:
+lh x20 2(sp)
+lh x21 4(sp)
+addi x20 x20 -5
+div x11 x21 x20
+ecall
+
+end:
+addi sp sp 6

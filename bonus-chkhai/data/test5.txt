@@ -1,0 +1,29 @@
+li x14 25
+li x15 16
+sub x16 x14 x15
+
+addi sp sp -4
+sw x16 0(sp)
+ble x15 x14 operations
+
+mul:
+lw x20 0(sp)
+add x11 x20 x14
+li x21 3
+mul x11 x11 x21
+ecall 
+j end
+
+operations:
+lw x20 0(sp)
+li x21 4
+div x20 x20 x21
+mv x11 x20
+li x10 1
+sw x11 0(sp)
+ecall
+j mul
+
+
+end:
+addi sp sp 4

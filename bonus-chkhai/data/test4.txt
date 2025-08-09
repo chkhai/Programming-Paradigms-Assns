@@ -1,0 +1,24 @@
+addi sp sp -4
+li t1 4
+li t2 7
+li t3 3
+
+call first_op
+
+back:
+lw x12 0(sp)
+addi x12 x12 -24
+li x13 2
+div x11 x12 x13
+ecall
+call end
+
+first_op:
+mul x11 t1 t2
+mul x11 x11 t3
+ecall
+sw x11 0(sp)
+call back
+
+end:
+addi sp sp 4

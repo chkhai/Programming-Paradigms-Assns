@@ -1,0 +1,17 @@
+addi sp sp -8
+li x12 15
+li x13 4
+sw x12 0(sp)
+sw x13 4(sp)
+lw x15 0(sp)
+addi x15 x15 5
+mv x11 x15 
+ecall
+
+lw x16 4(sp)
+li x17 2
+mul x16 x16 x17
+mv x11 x16
+ecall
+
+addi sp sp 8

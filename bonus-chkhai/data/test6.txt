@@ -1,0 +1,26 @@
+
+li x10 30
+li x11 -15
+addi sp sp -8
+sw x10 0(sp)
+sw x11 4(sp)
+call min
+rest:
+addi sp sp 8
+addi   x10 x0 1
+mv   x11 x20
+call end
+
+min:
+lw x10 0(sp)
+lw x11 4(sp)
+bge x10 x11 else
+lw x20 0(sp)
+j rest
+else:
+lw x20 4(sp)
+j rest
+
+end:
+addi sp sp 8
+ecall

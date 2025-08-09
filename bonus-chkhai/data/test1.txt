@@ -1,0 +1,18 @@
+li a0 10
+li a1 5
+add a2 a0 a1
+sub a3 a0 a1
+mul a4 a0 a1
+div a5 a0 a1
+li x10 1
+ecall
+mv x11 x12
+ecall
+mv x11 x13 
+ecall 
+mv x11 x14
+ecall 
+mv x11 x15
+ecall
+addi x11 x11 7
+ecall
